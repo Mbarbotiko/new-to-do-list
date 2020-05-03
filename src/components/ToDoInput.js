@@ -1,16 +1,54 @@
 import React from 'react';
+import shortid from 'shortid';
 
-const ToDoInput = (props) => {
-    return (
-        <div className='Input'>
-            <form>
-                <input placeholder='What to do?'></input>
-                <button>Add to List</button>
-            </form>
+class ToDoInput extends React.Component {
+    state = {
+        inputValue: ''
+
+    }
+
+    handleChange = (event) => {
+        this.setState({
+            [event.target.name]: event.target.value
+        })
+
+    }
 
 
-        </div>
-    )
+    handleSubmit = (event) => {
+        event.preventDefault();
+        this.props.onSubmit({
+            id: shortid.generate(),
+            inputValue: this.state.inputValue
+
+        })
+
+        this.setState({
+            inputValue:''
+        })
+
+      
+    }
+
+
+
+    render() {
+        return (
+            <div className='Input' >
+                <form>
+                    <input
+                        name='inputValue'
+                        placeholder='What to do?'
+                        value={this.state.inputValue}
+                        onChange={this.handleChange}
+                    ></input>
+                    <button onClick={this.handleSubmit}>Add to List</button>
+                </form>
+
+
+            </div>
+        )
+
+    }
 }
-
 export default ToDoInput;
