@@ -3,14 +3,24 @@ import ToDoItem from './ToDoItem';
 import ToDoInput from './ToDoInput';
 
 
+
 class ToDoList extends React.Component {
+
     state = {
-        toDoItems: []
+        toDoItems: JSON.parse(localStorage.getItem('ToDoList'))||[]
     }
     submitToDoItem = (addToDoItem) => {
         const toDoItems = [addToDoItem, ...this.state.toDoItems];
         this.setState({
             toDoItems,
+        })
+        localStorage.setItem('ToDoList', JSON.stringify(toDoItems));
+    }
+
+    removeLocalStorage = () => {
+        localStorage.removeItem('ToDoList');
+        this.setState({
+            toDoItems: []
         })
     }
 
@@ -31,6 +41,7 @@ class ToDoList extends React.Component {
         this.setState({
             toDoItems,
         })
+        localStorage.setItem('ToDoList', JSON.stringify(toDoItems));
     }
 
 
@@ -51,6 +62,7 @@ class ToDoList extends React.Component {
                     }
                 </ul>
                 <ToDoInput onSubmit={this.submitToDoItem} />
+                <button onClick={this.removeLocalStorage}>Forget My List</button>
             </div>
         )
     }
