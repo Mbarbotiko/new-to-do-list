@@ -14,17 +14,26 @@ class ToDoList extends React.Component {
         })
     }
 
+    // removeToDoItem = (id) => {
+    //     let toDoItems = [];
+    //     this.state.toDoItems.forEach(todo => {
+    //         if (todo.id !== id) {
+    //             toDoItems.push(todo);
+    //         }
+    //     })
+    //     this.setState({
+    //         toDoItems,
+    //     })
+    // }
+
     removeToDoItem = (id) => {
-        let toDoItems = [];
-        this.state.toDoItems.forEach(todo => {
-            if (todo.id !== id) {
-                toDoItems.push(todo);
-            }
-        })
+        const toDoItems = this.state.toDoItems.filter(todo => todo.id !== id)
         this.setState({
             toDoItems,
         })
     }
+
+
 
     render() {
 
