@@ -7,7 +7,7 @@ import ToDoInput from './ToDoInput';
 class ToDoList extends React.Component {
 
     state = {
-        toDoItems: JSON.parse(localStorage.getItem('ToDoList'))||[]
+        toDoItems: JSON.parse(localStorage.getItem('ToDoList')) || []
     }
     submitToDoItem = (addToDoItem) => {
         const toDoItems = [addToDoItem, ...this.state.toDoItems];
@@ -23,6 +23,15 @@ class ToDoList extends React.Component {
             toDoItems: []
         })
     }
+
+    //if no arrow function, use bind(this) in the onClick, otherwise its not needed because arrow function binds this automatically.
+    //   removeLocalStorage(){
+    //         localStorage.removeItem('ToDoList');
+    //         this.setState({
+    //             toDoItems: []
+    //         })
+    //     }
+
 
     // removeToDoItem = (id) => {
     //     let toDoItems = [];
@@ -43,11 +52,12 @@ class ToDoList extends React.Component {
         })
         localStorage.setItem('ToDoList', JSON.stringify(toDoItems));
     }
-
-
-
     render() {
-
+        //conditional rendering and assigning a component to a variable
+        let forgetList = null;
+        if (this.state.toDoItems.length > 0) {
+            forgetList = <button onClick={this.removeLocalStorage}>Forget My List</button>
+        }
         return (
             <div>
                 <ul className='List'>
@@ -56,13 +66,16 @@ class ToDoList extends React.Component {
                         <ToDoItem
                             key={todo.id}
                             item={todo.inputValue}
-                            removeItem={() => this.removeToDoItem(todo.id)}
+                            //must bind when passing arguments
+                            //https://reactjs.org/docs/handling-events.html
+                            removeItem={this.removeToDoItem.bind(this, (todo.id))}
                         />
                     ))
                     }
                 </ul>
                 <ToDoInput onSubmit={this.submitToDoItem} />
-                <button onClick={this.removeLocalStorage}>Forget My List</button>
+                {/* <button onClick={this.removeLocalStorage}>Forget My List</button> */}
+                {forgetList}
             </div>
         )
     }
