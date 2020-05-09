@@ -20,13 +20,12 @@ list-style-type: none;
 }
 
 .List li{
-float:left;
+  float:left;
+  
 }
 
-.List button{
-
-}
 
 .Input input{
   text-align: center;
 }
+

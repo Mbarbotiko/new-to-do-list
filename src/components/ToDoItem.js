@@ -4,15 +4,12 @@ import React from 'react';
 const ToDoItem = (props) => {
 
     return (
-        //  <React.Fragment>
+
+        // <></>
         <div>
-            <li>{props.item}</li><button>X</button>
+            <li>{props.item}</li><button onClick={props.removeItem}>X</button>
         </div>
 
-
-
-
-        //  </React.Fragment>
     )
 
 }
