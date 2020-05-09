@@ -12,13 +12,18 @@ class ToDoInput extends React.Component {
     }
     handleSubmit = (event) => {
         event.preventDefault();
-        this.props.onSubmit({
-            id: shortid.generate(),
-            inputValue: this.state.inputValue
-        })
-        this.setState({
-            inputValue: ''
-        })
+        if (this.state.inputValue.length > 0) {
+            this.props.onSubmit({
+                id: shortid.generate(),
+                inputValue: this.state.inputValue
+            })
+            this.setState({
+                inputValue: ''
+            })
+        }else{
+            //add tool tip here later instead
+            alert('You need to enter something....')
+        }
     }
 
     render() {
