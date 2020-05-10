@@ -4,7 +4,7 @@ const Tooltip = (props) => {
     return (
         <>
             <span className={`Tooltip ` + props.isActive}
-            >You need to enter something</span>
+            >{props.alertText}</span>
 
         </>
     )

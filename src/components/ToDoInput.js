@@ -1,6 +1,7 @@
 import React from 'react';
 import shortid from 'shortid';
 import Tooltip from './Tooltip';
+import SubmitButton from './SubmitButton';
 
 
 class ToDoInput extends React.Component {
@@ -59,12 +60,16 @@ class ToDoInput extends React.Component {
                         value={this.state.inputValue}
                         onChange={this.handleChange}
                     ></input>
-                    <button onClick={this.handleSubmit}
+                    {/* <button onClick={this.handleSubmit}
+                    
 
-                    >Add to List</button>
+                    >Add to List</button> */}
+                    <SubmitButton submitText = 'Add to List (test)'
+                    submitClick={this.handleSubmit}/>
                 </form>
                 <Tooltip
                     isActive={this.state.tooltip}
+                    alertText='You need to enter something'
 
                 />
             </div>

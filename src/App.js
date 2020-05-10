@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import ToDoList from './components/ToDoList';
-import Tooltip from './components/Tooltip';
+
 
 
 class App extends React.Component {

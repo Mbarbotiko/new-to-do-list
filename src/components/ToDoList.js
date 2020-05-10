@@ -1,6 +1,7 @@
 import React from 'react';
 import ToDoItem from './ToDoItem';
 import ToDoInput from './ToDoInput';
+import SubmitButton from './SubmitButton';
 //add a tool tip to the handle submit event
 //add ability to edit the current to do's displayed, onclick of the LI display an input that updates only that component, onClick= props.edit
 //style this with sass, add to portfolio and move onto another project
@@ -55,12 +56,15 @@ class ToDoList extends React.Component {
         localStorage.setItem('ToDoList', JSON.stringify(toDoItems));
     }
     render() {
+        console.log(this.state.toDoItems.length)
         //conditional rendering and assigning a component to a variable
-        let forgetList = null;
+        let forgetListButton = null;
         if (this.state.toDoItems.length > 0) {
-            forgetList = <button onClick={this.removeLocalStorage}>Forget My List</button>
+            forgetListButton = <SubmitButton submitClick={this.removeLocalStorage}
+                submitText='Forget my list' />
         }
         return (
+
             <div>
                 <ul className='List'>
                     <h3>My to do's</h3>
@@ -77,7 +81,7 @@ class ToDoList extends React.Component {
                 </ul>
                 <ToDoInput onSubmit={this.submitToDoItem} />
                 {/* <button onClick={this.removeLocalStorage}>Forget My List</button> */}
-                {forgetList}
+                {forgetListButton}
             </div>
         )
     }
