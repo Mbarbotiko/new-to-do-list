@@ -31,13 +31,15 @@ list-style-type: none;
 }
 
 .Tooltip{
-    width: 300px;
+    width: 100vw;
     background-color: black;
     color: #fff;
     text-align: center;
     padding: 5px 0;
-    border-radius: 6px;
+    /* border-radius: 6px; */
     position: absolute;
+    left:0;
+    top:0;
     z-index: 1;
 }
 .visible{

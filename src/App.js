@@ -14,7 +14,6 @@ class App extends React.Component {
 
     return (
       <div className="App">
-       <Tooltip/>
         <header className="App-header">
           <h1>To Do List</h1>
         </header>

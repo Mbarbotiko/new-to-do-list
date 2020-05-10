@@ -1,16 +1,24 @@
 import React from 'react';
 import shortid from 'shortid';
-
+import Tooltip from './Tooltip';
 
 
 class ToDoInput extends React.Component {
     state = {
-        inputValue: ''
+        inputValue: '',
+        tooltip: 'invisible'
     }
     handleChange = (event) => {
         this.setState({
             inputValue: event.target.value
         })
+        if (event.target.value.length > 0 && this.state.tooltip === 'visible') {
+            this.setState({
+
+                tooltip: 'invisible'
+            })
+
+        }
     }
     handleSubmit = (event) => {
         event.preventDefault();
@@ -21,10 +29,21 @@ class ToDoInput extends React.Component {
             })
             this.setState({
                 inputValue: ''
+
             })
+            if (this.state.tooltip === 'visible') {
+                this.setState({
+
+                    tooltip: 'invisible'
+                })
+
+            }
         } else {
             //add tool tip here later instead
-            alert('You need to enter something....')
+            // alert('You need to enter something....')
+            this.setState({
+                tooltip: 'visible'
+            })
 
 
         }
@@ -44,6 +63,10 @@ class ToDoInput extends React.Component {
 
                     >Add to List</button>
                 </form>
+                <Tooltip
+                    isActive={this.state.tooltip}
+
+                />
             </div>
         )
 
