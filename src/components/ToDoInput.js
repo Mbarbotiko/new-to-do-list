@@ -1,6 +1,8 @@
 import React from 'react';
 import shortid from 'shortid';
 
+
+
 class ToDoInput extends React.Component {
     state = {
         inputValue: ''
@@ -20,9 +22,11 @@ class ToDoInput extends React.Component {
             this.setState({
                 inputValue: ''
             })
-        }else{
+        } else {
             //add tool tip here later instead
             alert('You need to enter something....')
+
+
         }
     }
 
@@ -36,7 +40,9 @@ class ToDoInput extends React.Component {
                         value={this.state.inputValue}
                         onChange={this.handleChange}
                     ></input>
-                    <button onClick={this.handleSubmit}>Add to List</button>
+                    <button onClick={this.handleSubmit}
+
+                    >Add to List</button>
                 </form>
             </div>
         )

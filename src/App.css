@@ -27,5 +27,27 @@ list-style-type: none;
 
 .Input input{
   text-align: center;
+
 }
 
+.Tooltip{
+    width: 300px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+}
+.visible{
+  visibility: visible;
+}
+
+.invisible{
+  visibility: hidden;
+}
+
+button:hover{
+cursor: pointer;
+}

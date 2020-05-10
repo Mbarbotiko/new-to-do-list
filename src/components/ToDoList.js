@@ -1,7 +1,9 @@
 import React from 'react';
 import ToDoItem from './ToDoItem';
 import ToDoInput from './ToDoInput';
-
+//add a tool tip to the handle submit event
+//add ability to edit the current to do's displayed, onclick of the LI display an input that updates only that component, onClick= props.edit
+//style this with sass, add to portfolio and move onto another project
 
 
 class ToDoList extends React.Component {

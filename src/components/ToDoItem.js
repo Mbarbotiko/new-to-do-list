@@ -7,7 +7,7 @@ const ToDoItem = (props) => {
 
         // <></>
         <div>
-            <li>{props.item}</li><button onClick={props.removeItem}>X</button>
+            <li onClick={props.edit}>{props.item}</li><button onClick={props.removeItem}>X</button>
         </div>
 
     )
