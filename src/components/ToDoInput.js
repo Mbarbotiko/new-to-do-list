@@ -4,12 +4,21 @@ import Tooltip from './Tooltip';
 import SubmitButton from './SubmitButton';
 import './ToDoInput.scss';
 
+const toolTipMessages = {
+    notEnough: 'You need to enter something...',
+    tooMany: 'Whoa, this is a simple to do list not a novel....remove some text'
+
+}
+
+
 
 class ToDoInput extends Component {
     state = {
         inputValue: '',
-        tooltip: 'invisible'
+        tooltip: 'invisible',
+        tooltipText: ''
     }
+
 
     handleChange = (event) => {
         this.setState({
@@ -60,7 +69,9 @@ class ToDoInput extends Component {
         event.preventDefault();
         const trimmedState = this.state.inputValue.trim();
         const lengthIsThere = trimmedState.length > 0;
-        if (lengthIsThere) {
+        const lengthIsOk = trimmedState.length < 100;
+        if (lengthIsThere && lengthIsOk) { //only run if 1-100 length
+            /*scdsjdsdjfnsdjfndsjkfnsjknrjenrjsne rjse rkje rjsnkjf sf ksdn kjsdnkjs djnsdjkvnsjnv ksdjnvk e rkserkf sndjsndkvjns dvksjdn vskdjvn skjdvn sdkjvn sdkjvn */
             //if there is length
             this.props.onSubmit({
                 id: shortid.generate(),
@@ -73,7 +84,8 @@ class ToDoInput extends Component {
 
         //if visible set to invisible only if there is length to the input field
         this.setState({
-            tooltip: !lengthIsThere ? 'visible' : 'invisible'
+            tooltip: !lengthIsThere ? 'visible' : 'invisible',
+            tooltipText: toolTipMessages.notEnough
         })
 
     }
@@ -97,7 +109,7 @@ class ToDoInput extends Component {
                 </form>
                 <Tooltip
                     isActive={this.state.tooltip}
-                    alertText='You need to enter something'
+                    alertText={this.state.tooltipText}
 
                 />
             </div>

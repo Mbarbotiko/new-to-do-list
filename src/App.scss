@@ -29,7 +29,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: 0vh 5.5vh 6vh -7vh black;
+  box-shadow: 0vh 5.5vh 6vh -7vh $blk;
  //add a box shadow x, y, blur, spread
 }
 .App-footer {
@@ -37,7 +37,7 @@
   position:absolute;
   bottom:0;
    //add a box shadow
-   box-shadow: 0vh 5.5vh 6vh 2.5vh black;
+   box-shadow: 0vh 5.5vh 6vh 2.5vh $blk;
 }
 
 h1{

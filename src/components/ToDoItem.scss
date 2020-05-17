@@ -18,16 +18,16 @@
 
 
 }
-span{
+.Todo-card span{
     font-family: 'Frijole', cursive;
 }
 
-span:hover{
+.Todo-card span:hover{
     cursor: pointer;
     color:$red;
 }
 
-img{
+.Todo-card img{
     width:50px;
     border-radius: 100%;
 }

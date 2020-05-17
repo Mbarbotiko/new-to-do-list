@@ -1,13 +1,14 @@
 .Tooltip{
-    width: 100vw;
+    width: 100%;
     background-color: black;
     color: #fff;
     text-align: center;
     padding: 5px 0;
     /* border-radius: 6px; */
     position: absolute;
-    left:0;
+  left:0;
     top:0;
+    margin: auto;
     z-index: 1;
 }
 .visible{
