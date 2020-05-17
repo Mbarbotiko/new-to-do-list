@@ -67,8 +67,7 @@ class ToDoList extends Component {
         return (
 
             <div>
-                <ul className='List'>
-                    <h3>My to do's</h3>
+                <div className='List'>
                     {this.state.toDoItems.map(todo => (
                         <ToDoItem
                             key={todo.id}
@@ -79,7 +78,7 @@ class ToDoList extends Component {
                         />
                     ))
                     }
-                </ul>
+                </div>
                 <ToDoInput onSubmit={this.submitToDoItem} />
                 {/* <button onClick={this.removeLocalStorage}>Forget My List</button> */}
                 {forgetListButton}

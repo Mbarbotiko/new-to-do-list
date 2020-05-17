@@ -1,14 +1,12 @@
 .List{
-    list-style-type: none;
-    }
+  // background-color:orange;
+  width:60%;
+   list-style-type: none;
+   margin:auto;
+   margin-top:50px;
+   margin-bottom:100px;
+}
     
-    .List li{
-      float:left;
-      
-    }
-    
-    
-    .Input input{
-      text-align: center;
-    
-    }
+.Input input{
+  text-align: center;
+}
