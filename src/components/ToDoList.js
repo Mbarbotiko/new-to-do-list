@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import ToDoItem from './ToDoItem';
 import ToDoInput from './ToDoInput';
 import SubmitButton from './SubmitButton';
+import  './ToDoList.scss';
 //add a tool tip to the handle submit event
 //add ability to edit the current to do's displayed, onclick of the LI display an input that updates only that component, onClick= props.edit
 //style this with sass, add to portfolio and move onto another project
@@ -56,7 +57,7 @@ class ToDoList extends Component {
         localStorage.setItem('ToDoList', JSON.stringify(toDoItems));
     }
     render() {
-        console.log(this.state.toDoItems.length)
+       // console.log(this.state.toDoItems.length)
         //conditional rendering and assigning a component to a variable
         let forgetListButton = null;
         if (this.state.toDoItems.length > 0) {

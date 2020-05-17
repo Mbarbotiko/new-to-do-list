@@ -1,5 +1,5 @@
 import React from 'react';
-import  '../components/Tooltip.scss';
+import  './Tooltip.scss';
 
 const Tooltip = (props) => {
     return (

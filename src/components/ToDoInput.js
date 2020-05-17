@@ -1,7 +1,8 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import shortid from 'shortid';
 import Tooltip from './Tooltip';
 import SubmitButton from './SubmitButton';
+import './ToDoInput.scss';
 
 
 class ToDoInput extends Component {
@@ -9,45 +10,65 @@ class ToDoInput extends Component {
         inputValue: '',
         tooltip: 'invisible'
     }
+    
     handleChange = (event) => {
         this.setState({
             inputValue: event.target.value
         })
         if (event.target.value.length > 0 && this.state.tooltip === 'visible') {
             this.setState({
-
                 tooltip: 'invisible'
             })
 
         }
     }
+    // handleSubmit = (event) => {
+    //     event.preventDefault();
+    //     const trimmedState = this.state.inputValue.trim();
+    //     if (trimmedState.length > 0) {
+    //         this.props.onSubmit({
+    //             id: shortid.generate(),
+    //             inputValue: trimmedState
+    //         })
+    //         this.setState({
+    //             inputValue: ''
+
+    //         })
+
+    //         if (this.state.tooltip === 'visible') {
+    //             this.setState({
+    //                 tooltip: 'invisible'
+
+    //             })
+    //         }
+    //     } else {
+    //         this.setState({
+    //             tooltip: 'visible'
+    //         })
+
+
+    //     }
+    // }
+//Play with ternary operator instead
     handleSubmit = (event) => {
         event.preventDefault();
-        if (this.state.inputValue.length > 0) {
-            this.props.onSubmit({
-                id: shortid.generate(),
-                inputValue: this.state.inputValue
-            })
-            this.setState({
-                inputValue: ''
-
-            })
-            if (this.state.tooltip === 'visible') {
-                this.setState({
-
-                    tooltip: 'invisible'
+        const trimmedState = this.state.inputValue.trim();
+        const lengthIsThere = trimmedState.length > 0; 
+        if (lengthIsThere) {
+                this.props.onSubmit({
+                    id: shortid.generate(),
+                    inputValue: trimmedState
                 })
-
+                this.setState({
+                    inputValue: ''
+                })
             }
-        } else {
-            //add tool tip here later instead
-            // alert('You need to enter something....')
-            this.setState({
-                tooltip: 'visible'
-            })
 
+//if visible set to invisible only if there is length to the input field
+        this.setState({
+            tooltip: !lengthIsThere ? 'visible' : 'invisible'
+        })
 
-        }
     }
 
     render() {
@@ -64,8 +85,8 @@ class ToDoInput extends Component {
                     
 
                     >Add to List</button> */}
-                    <SubmitButton submitText = 'Add to List (test)'
-                    submitClick={this.handleSubmit}/>
+                    <SubmitButton submitText='Add to List (test)'
+                        submitClick={this.handleSubmit} />
                 </form>
                 <Tooltip
                     isActive={this.state.tooltip}

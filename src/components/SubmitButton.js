@@ -1,4 +1,5 @@
 import React from 'react';
+import  './SubmitButton.scss';
 
 const SubmitButton = (props) => {
     return (
