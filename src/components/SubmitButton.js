@@ -7,7 +7,7 @@ const SubmitButton = (props) => {
             <button
                 className='SubmitButton'
                 onClick={props.submitClick
-                }>{props.submitText}</button>
+                }>{props.submitButtonText}</button>
         </>
     )
 }

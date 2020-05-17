@@ -62,7 +62,7 @@ class ToDoList extends Component {
         let forgetListButton = null;
         if (this.state.toDoItems.length > 0) {
             forgetListButton = <SubmitButton submitClick={this.removeLocalStorage}
-                submitText='Forget my list' />
+                submitButtonText='Forget My List' />
         }
         return (
 

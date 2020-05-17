@@ -92,7 +92,7 @@ class ToDoInput extends Component {
                     
 
                     >Add to List</button> */}
-                    <SubmitButton submitText='Add to List (test)'
+                    <SubmitButton submitButtonText='Add to List'
                         submitClick={this.handleSubmit} />
                 </form>
                 <Tooltip
