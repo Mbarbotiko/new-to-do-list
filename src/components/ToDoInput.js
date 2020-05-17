@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {Component} from 'react';
 import shortid from 'shortid';
 import Tooltip from './Tooltip';
 import SubmitButton from './SubmitButton';
 
 
-class ToDoInput extends React.Component {
+class ToDoInput extends Component {
     state = {
         inputValue: '',
         tooltip: 'invisible'

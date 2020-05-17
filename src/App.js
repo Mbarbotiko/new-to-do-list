@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './App.scss';
 import ToDoList from './components/ToDoList';
 //https://pixabay.com/api/docs/
@@ -6,7 +6,7 @@ import ToDoList from './components/ToDoList';
 
 
 
-class App extends React.Component {
+class App extends Component {
 
 
 

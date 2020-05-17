@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import ToDoItem from './ToDoItem';
 import ToDoInput from './ToDoInput';
 import SubmitButton from './SubmitButton';
@@ -7,7 +7,7 @@ import SubmitButton from './SubmitButton';
 //style this with sass, add to portfolio and move onto another project
 
 
-class ToDoList extends React.Component {
+class ToDoList extends Component {
 
     state = {
         toDoItems: JSON.parse(localStorage.getItem('ToDoList')) || []
