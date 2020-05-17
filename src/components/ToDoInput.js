@@ -10,7 +10,7 @@ class ToDoInput extends Component {
         inputValue: '',
         tooltip: 'invisible'
     }
-    
+
     handleChange = (event) => {
         this.setState({
             inputValue: event.target.value
@@ -49,22 +49,29 @@ class ToDoInput extends Component {
 
     //     }
     // }
-//Play with ternary operator instead
+
+    neatMySentence = (sentence) => {
+        return sentence.substring(0, 1).toUpperCase() + sentence.substring(1).toLowerCase();
+        //create a reusable method to make sentences/ to dos neat before sending
+    }
+
+    //Play with ternary operator instead
     handleSubmit = (event) => {
         event.preventDefault();
         const trimmedState = this.state.inputValue.trim();
-        const lengthIsThere = trimmedState.length > 0; 
+        const lengthIsThere = trimmedState.length > 0;
         if (lengthIsThere) {
-                this.props.onSubmit({
-                    id: shortid.generate(),
-                    inputValue: trimmedState
-                })
-                this.setState({
-                    inputValue: ''
-                })
-            }
+            //if there is length
+            this.props.onSubmit({
+                id: shortid.generate(),
+                inputValue: this.neatMySentence(trimmedState)
+            })
+            this.setState({
+                inputValue: ''
+            })
+        }
 
-//if visible set to invisible only if there is length to the input field
+        //if visible set to invisible only if there is length to the input field
         this.setState({
             tooltip: !lengthIsThere ? 'visible' : 'invisible'
         })
