@@ -1,6 +1,8 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
 import ToDoList from './components/ToDoList';
+//https://pixabay.com/api/docs/
+//https://jestjs.io/
 
 
 
