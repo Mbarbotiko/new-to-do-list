@@ -1,35 +1,51 @@
 @import 'VariableSetup.scss';//import shared colors/fonts/vars
 .App {
   text-align: center;
-  color: white;
-  background-color: #282c34;
-  // background-color: $testColor;
-
-  min-height: 100vh;
+  color:$blk;
+  background-color: $offWhite;
+  min-height:100vh;
+  max-width: 40vw;
+  position:relative;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin:auto;
+ // padding-bottom:5%;
 }
 
+.App-header, .App-footer{
+  background: linear-gradient(to right, $lightAqua, $aqua);
+  color:$offWhite;
+  width:100%;
+
+}
 .App-header {
-  /* justify-content: center; */
-  padding-top:5vh;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  min-height:20vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0vh 5.5vh 6vh -7vh black;
+ //add a box shadow x, y, blur, spread
+}
+.App-footer {
+  min-height:5vh;
+  position:absolute;
+  bottom:0;
+   //add a box shadow
+   box-shadow: 0vh 5.5vh 6vh 2.5vh black;
 }
 
-.List{
-list-style-type: none;
+h1{
+  // border-top:$offWhite solid 1px;
+  // border-bottom:$offWhite solid 1px;
+  width:35%;
+  margin:auto;
+  line-height: 200%;
+
 }
 
-.List li{
-  float:left;
-  
-}
-
-
-.Input input{
-  text-align: center;
+.App-header h1:nth-child(-n + 2){
+  border-bottom:$offWhite solid 1px;
 
 }
 

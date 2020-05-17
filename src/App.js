@@ -17,9 +17,15 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
+       {/* <div className = 'shadow'/> */}
+          <h1>Margarita's</h1>
           <h1>To Do List</h1>
+          <h3>What's On The Agenda?</h3>
         </header>
         <ToDoList />
+        <footer className='App-footer'>
+          <h2>place forget list here</h2>
+        </footer>
 
 
       </div>
