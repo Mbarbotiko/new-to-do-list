@@ -21,6 +21,7 @@ class ToDoInput extends Component {
 
 
     handleChange = (event) => {
+        //here also do not allow more than 100 characters and trigger alert
         this.setState({
             inputValue: event.target.value
         })
@@ -96,7 +97,7 @@ class ToDoInput extends Component {
                 <form>
                     <input
                         type='text'
-                        placeholder='What to do?'
+                        placeholder='What to Do?'
                         value={this.state.inputValue}
                         onChange={this.handleChange}
                     ></input>

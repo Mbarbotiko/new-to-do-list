@@ -1,0 +1,14 @@
+@import './../VariableSetup.scss';//import shared colors/fonts/vars
+
+
+.SubmitButton{
+    background-color: transparent;
+    border: solid 1px $aqua;
+    color: $aquaText;
+    padding: 10px 50px;
+    text-align: center;
+    font-size: 1em;
+    letter-spacing: .2em;
+    height:100%
+
+}
