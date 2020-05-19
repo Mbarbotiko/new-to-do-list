@@ -70,7 +70,7 @@ class ToDoList extends Component {
             <div className='List'>
                 <ToDoInput onSubmit={this.submitToDoItem} />
                 {/* <button onClick={this.removeLocalStorage}>Forget My List</button> */}
-                {forgetListButton}
+                {/* {forgetListButton} */}  
                 {this.state.toDoItems.map(todo => (
                     <ToDoItem
                         key={todo.id}
