@@ -10,8 +10,6 @@ const toolTipMessages = {
 
 }
 
-
-
 class ToDoInput extends Component {
     state = {
         inputValue: '',
@@ -19,17 +17,32 @@ class ToDoInput extends Component {
         tooltipText: ''
     }
 
-
     handleChange = (event) => {
+        const userInput = event.target.value;
+        const tooltipState = this.state.tooltip;
+        console.log(userInput, userInput.length)
         //here also do not allow more than 100 characters and trigger alert
         this.setState({
-            inputValue: event.target.value
+            inputValue: userInput
         })
-        if (event.target.value.length > 0 && this.state.tooltip === 'visible') {
+        //remove the tool tip if user has entered something into the field after attempting to submit an empty string
+        if (userInput.length === 1 && tooltipState === 'visible') {
             this.setState({
                 tooltip: 'invisible'
             })
+        }
 
+        if (userInput.length > 30 && tooltipState === 'invisible') {
+            this.setState({
+                tooltip: 'visible',
+                tooltipText : toolTipMessages.tooMany
+            })
+        }
+
+        if (userInput.length <= 30 && tooltipState === 'visible') {
+            this.setState({
+                tooltip: 'invisible'
+            })
         }
     }
     // handleSubmit = (event) => {
@@ -66,14 +79,14 @@ class ToDoInput extends Component {
     }
 
     //Play with ternary operator instead
+    //onsubmit the tool tip should remain on the screen until a valid entry is made, it is currently being made invisible on submit
     handleSubmit = (event) => {
         event.preventDefault();
         const trimmedState = this.state.inputValue.trim();
         const lengthIsThere = trimmedState.length > 0;
-        const lengthIsOk = trimmedState.length < 100;
-        if (lengthIsThere && lengthIsOk) { //only run if 1-100 length
-            /*scdsjdsdjfnsdjfndsjkfnsjknrjenrjsne rjse rkje rjsnkjf sf ksdn kjsdnkjs djnsdjkvnsjnv ksdjnvk e rkserkf sndjsndkvjns dvksjdn vskdjvn skjdvn sdkjvn sdkjvn */
-            //if there is length
+        const lengthIsOk = trimmedState.length <= 30;
+        console.log(lengthIsOk, lengthIsThere)
+        if (lengthIsThere && lengthIsOk) { 
             this.props.onSubmit({
                 id: shortid.generate(),
                 inputValue: this.neatMySentence(trimmedState)
@@ -83,7 +96,7 @@ class ToDoInput extends Component {
             })
         }
 
-        //if visible set to invisible only if there is length to the input field
+        //if visible set to invisible only if there is length to the input field (adjust this)
         this.setState({
             tooltip: !lengthIsThere ? 'visible' : 'invisible',
             tooltipText: toolTipMessages.notEnough
@@ -97,6 +110,8 @@ class ToDoInput extends Component {
                 <form>
                     <input
                         type='text'
+                        minLength='1'
+                        maxLength='31'
                         placeholder='What to Do?'
                         value={this.state.inputValue}
                         onChange={this.handleChange}
