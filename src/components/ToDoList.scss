@@ -1,6 +1,5 @@
 @import './../VariableSetup.scss';//import shared colors/fonts/vars
 .List{
-  // background-color:orange;
   width:50%;
    list-style-type: none;
    margin:auto;
@@ -24,12 +23,16 @@
 .Input input:focus{
   outline: none;
 }
-//not sure if keep submit button border, or have border around entire form and remove submit button border
-form{
- // border: solid 1px $aqua;
+
+
+@media(max-width:1650px){
+  .List{
+    width:80%;
+  }  
 }
 
-form .SubmitButton{
-//  border: none;
-
+@media(max-width:568px){
+  .List{
+    width:96%;
+  }  
 }

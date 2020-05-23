@@ -10,30 +10,35 @@
     margin-top:10%;
     color:$aquaText;
 }
+
 .Todo-card div{
     float: left;
     clear: both;
     display: flex;
     justify-content: center;
 }
+
 //img in card
 .Todo-card div:nth-child(1){
     width:10%;
     padding-left:5%;
-
 }
+
 //text in card
 .Todo-card div:nth-child(2){
     width:70%;
 }
+
 //span in card
 .Todo-card div:nth-child(3){
     width:10%;
 }
+
 .Todo-card p{
     font-size: 1.25em;
     line-height: 3em;
 }
+
 .Todo-card span{
     font-family: 'Frijole', cursive;
     font-family: 'Acme', sans-serif;
@@ -42,12 +47,86 @@
     line-height: 2em;
     padding-right:5%;   
 }
+
 .Todo-card span:hover{
     cursor: pointer;
     color:$red;
 }
+
 .Todo-card img{
     width:100%;
     height:90%;
     border-radius: 100%;
 }
+
+@media(max-width:1650px){
+    .Todo-card{
+        height:7vw;
+        margin-top:5%;
+    }  
+}
+
+  @media(max-width:1250px){
+    .Todo-card{
+        height:10vw;
+        margin-top:3%;
+    }  
+ }
+
+  @media(max-width:768px){
+    .Todo-card p{
+        font-size: 1em;
+    }
+    
+    .Todo-card span{
+        font-size: 1em;
+        line-height: 5em;
+    }
+ }
+  
+ @media(max-width:568px){
+    .Todo-card{
+        height:18vw;
+    }  
+
+    .Todo-card p{
+        font-size: .75em;
+        line-height: 5em;
+    }
+    
+    .Todo-card span{
+        font-size: .75em;
+        line-height: 6em;
+    }
+
+    //img in card
+    .Todo-card div:nth-child(1){
+       width:20%;
+       padding-left:5%;
+    }
+ }
+
+ @media(max-width:420px){
+    .Todo-card{
+        height:25vw;
+    }  
+
+    .Todo-card p{
+        font-size: 3vw;
+    }
+    
+    .Todo-card span{
+        font-size: 3vw;
+    }
+
+    //img in card
+    .Todo-card div:nth-child(1){
+       padding-left:2%;
+    } 
+
+    .Todo-card img{
+       height:70%;
+       margin-top:20%;
+    }
+ }
+  
