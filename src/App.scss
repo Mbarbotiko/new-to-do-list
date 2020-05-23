@@ -42,3 +42,30 @@ h1{
   margin:auto;
   letter-spacing: .25em;
 }
+
+
+@media(max-width:768px){
+  h1{
+   // letter-spacing: .25em;
+    font-size:2em;
+  }
+
+  h2{
+     font-size:1.5em;
+   }
+}
+
+@media(max-width:420px){
+  h1{
+    font-size:1.5em;
+  }
+
+  h2{
+     font-size:1em;
+   }
+
+   .App-header {
+    min-height:15vh;
+
+  }
+}
