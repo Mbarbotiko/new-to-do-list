@@ -24,11 +24,23 @@
   outline: none;
 }
 
-
 @media(max-width:1650px){
   .List{
     width:80%;
   }  
+}
+
+@media(max-width:1250px){
+  .Input input{
+    width: 80%;
+    margin-bottom:2%;
+  } 
+}
+
+@media(max-width:768px){
+  .Input input{
+    width: 100%;
+  } 
 }
 
 @media(max-width:568px){

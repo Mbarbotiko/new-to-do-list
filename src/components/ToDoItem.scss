@@ -74,13 +74,24 @@
  }
 
   @media(max-width:768px){
+    .Todo-card{
+        height:18vw;
+    }  
+
     .Todo-card p{
         font-size: 1em;
+        line-height: 5em;
     }
     
     .Todo-card span{
         font-size: 1em;
-        line-height: 5em;
+        line-height: 6em;
+    }
+
+    //img in card
+    .Todo-card div:nth-child(1){
+       width:20%;
+       padding-left:5%;
     }
  }
   
