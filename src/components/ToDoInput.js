@@ -35,7 +35,7 @@ class ToDoInput extends Component {
         if (userInput.length > 30 && tooltipState === 'invisible') {
             this.setState({
                 tooltip: 'visible',
-                tooltipText : toolTipMessages.tooMany
+                tooltipText: toolTipMessages.tooMany
             })
         }
 
@@ -83,10 +83,12 @@ class ToDoInput extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
         const trimmedState = this.state.inputValue.trim();
-        const lengthIsThere = trimmedState.length > 0;
+        const lengthIsThere = trimmedState.length >= 1;
         const lengthIsOk = trimmedState.length <= 30;
+        //  const novel = trimmedState.length>30;
         console.log(lengthIsOk, lengthIsThere)
-        if (lengthIsThere && lengthIsOk) { 
+        if (lengthIsThere && lengthIsOk) {
+            //if atleast 1 character is in the field after trimming, and there are 30 characters or less submit the form
             this.props.onSubmit({
                 id: shortid.generate(),
                 inputValue: this.neatMySentence(trimmedState)
@@ -94,13 +96,48 @@ class ToDoInput extends Component {
             this.setState({
                 inputValue: ''
             })
+
+            this.setState({
+                tooltip: 'invisible',
+                tooltipText: ''
+            })
+        } else {
+            //if the length of the field trimmed is 0 
+
+            if (trimmedState.length === 0) {
+                const toolTip = 'visible'
+                const toolTipText = toolTipMessages.notEnough;
+                this.setState({
+                    tooltip: toolTip,
+                    tooltipText: toolTipText
+                })
+
+            }
+
+            if (trimmedState.length > 30) {
+                const toolTip = 'visible'
+                const toolTipText = toolTipMessages.tooMany;
+                this.setState({
+                    tooltip: toolTip,
+                    tooltipText: toolTipText
+                })
+
+            }
+
+
+
+            //if visible set to invisible only if there is length to the input field (adjust this)
+
+
+            // this.setState({
+            //     tooltip: lengthIsOk ? 'invisible' : 'visible',
+            //     tooltipText: toolTipMessages.tooMany
+            // })
+
+
         }
 
-        //if visible set to invisible only if there is length to the input field (adjust this)
-        this.setState({
-            tooltip: !lengthIsThere ? 'visible' : 'invisible',
-            tooltipText: toolTipMessages.notEnough
-        })
+
 
     }
 
