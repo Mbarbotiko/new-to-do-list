@@ -11,10 +11,16 @@
     height:100%;
 }
 
+@media(max-width:850px) and (orientation:landscape){
+    .SubmitButton{
+        width:100%;
+        padding: 15px 50px;
+    }
+ }
+
 @media(max-width:420px){
     .SubmitButton{
-        padding: 3% 32%;
-        text-align: center;
+        width:100%;
         font-size: .75em;
     }
  }
