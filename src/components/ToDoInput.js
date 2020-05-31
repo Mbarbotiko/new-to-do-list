@@ -20,7 +20,6 @@ class ToDoInput extends Component {
     handleChange = (event) => {
         const userInput = event.target.value;
         const tooltipState = this.state.tooltip;
-        console.log(userInput, userInput.length)
         //here also do not allow more than 100 characters and trigger alert
         this.setState({
             inputValue: userInput
@@ -61,12 +60,12 @@ class ToDoInput extends Component {
         const lengthIsThere = trimmedState.length >= 1;
         const lengthIsOk = trimmedState.length <= 30;
         //  const novel = trimmedState.length>30;
-        console.log(lengthIsOk, lengthIsThere)
         if (lengthIsThere && lengthIsOk) {
             //if atleast 1 character is in the field after trimming, and there are 30 characters or less submit the form
             this.props.onSubmit({
                 id: shortid.generate(),
                 inputValue: this.neatMySentence(trimmedState)
+                //add image URL here from fetch call to pass to toDoList.js state array and map it out in pixaBayImage prop
             })
             this.setState({
                 inputValue: ''
