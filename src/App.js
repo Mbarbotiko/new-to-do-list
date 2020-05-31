@@ -54,17 +54,32 @@ class App extends Component {
     test: ''
   }
 
-  
-  componentDidMount() {
+  randomImage = (min, max) => {
+    const num = Math.floor(Math.random() * (max - min + 1)) + min;
+    //10 - 0 + 1 = 11 + 0 = 11
+    return num;
+  }
+//add a param later for the search string right now just testing using hard coded query string
+  testFetchCall = (someQueryHere) => {
     fetch(URL)
       .then(response => response.json())
-      .then(data =>{
+      .then(data => {
+        const first = 0;
+        const last = data.hits.length - 1;
+        const someRandomImage = this.randomImage(first, last)
+        // this.setState({
+        //   test: data.hits[0].previewURL
+        // })
+
         this.setState({
-          test:data.hits[0].previewURL
+          test: data.hits[someRandomImage].previewURL
         })
-      }
-        
-      )
+      })
+
+  }
+
+  componentDidMount() {
+    this.testFetchCall();
 
   }
 
