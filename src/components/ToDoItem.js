@@ -1,6 +1,6 @@
 import React from 'react';
 import  './ToDoItem.scss';
-import toDoImage from './testImage.jpg'
+import toDoImage from './images/testImage.jpg'
 //https://reactjs.org/docs/fragments.html';
 
 const ToDoItem = (props) => {
@@ -9,7 +9,7 @@ const ToDoItem = (props) => {
 
         // <></>
         <div className='Todo-card'>
-            <div><img src={toDoImage}></img></div>
+            <div><img src={toDoImage} alt='someImagefromAPI'/></div>
             <div onClick={props.edit}><p>{props.item}</p></div>
             <div><span onClick={props.removeItem}>X</span></div>
 

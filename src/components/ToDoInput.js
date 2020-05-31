@@ -32,7 +32,8 @@ class ToDoInput extends Component {
             })
         }
 
-        if (userInput.length > 30 && tooltipState === 'invisible') {
+        if (userInput.length >= 30 && tooltipState === 'invisible') {
+            //if length of string with white space is 30 show the alert
             this.setState({
                 tooltip: 'visible',
                 tooltipText: toolTipMessages.tooMany
@@ -45,33 +46,7 @@ class ToDoInput extends Component {
             })
         }
     }
-    // handleSubmit = (event) => {
-    //     event.preventDefault();
-    //     const trimmedState = this.state.inputValue.trim();
-    //     if (trimmedState.length > 0) {
-    //         this.props.onSubmit({
-    //             id: shortid.generate(),
-    //             inputValue: trimmedState
-    //         })
-    //         this.setState({
-    //             inputValue: ''
 
-    //         })
-
-    //         if (this.state.tooltip === 'visible') {
-    //             this.setState({
-    //                 tooltip: 'invisible'
-
-    //             })
-    //         }
-    //     } else {
-    //         this.setState({
-    //             tooltip: 'visible'
-    //         })
-
-
-    //     }
-    // }
 
     neatMySentence = (sentence) => {
         return sentence.substring(0, 1).toUpperCase() + sentence.substring(1).toLowerCase();
