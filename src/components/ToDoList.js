@@ -59,6 +59,7 @@ class ToDoList extends Component {
     }
     render() {
         //conditional rendering and assigning a component to a variable
+        console.log(this.state.toDoItems)
         let forgetListButton = null;
         if (this.state.toDoItems.length > 0) {
             forgetListButton = <SubmitButton submitClick={this.removeLocalStorage}
@@ -75,7 +76,7 @@ class ToDoList extends Component {
                     <ToDoItem
                         key={todo.id}
                         item={todo.inputValue}
-                        pixabayImage ={toDoImage}
+                        pixabayImage ={todo.image}
                         //must bind when passing arguments
                         //https://reactjs.org/docs/handling-events.html
                         removeItem={this.removeToDoItem.bind(this, (todo.id))}

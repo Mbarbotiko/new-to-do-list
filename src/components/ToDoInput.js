@@ -3,6 +3,10 @@ import shortid from 'shortid';
 import Tooltip from './Tooltip';
 import SubmitButton from './SubmitButton';
 import './ToDoInput.scss';
+import failedImage from './images/imageAPIfail.jpg'
+const PIXABAY = `${process.env.REACT_APP_PIXABAY_API_KEY}`
+const URL = `https://pixabay.com/api/?key=${PIXABAY}`
+//&q=coffee&image_type=photo`
 
 const toolTipMessages = {
     notEnough: 'You need to enter something...',
@@ -14,8 +18,43 @@ class ToDoInput extends Component {
     state = {
         inputValue: '',
         tooltip: 'invisible',
-        tooltipText: ''
+        tooltipText: '',
+        image: ''
+
     }
+
+    randomImage = (min, max) => {
+        const num = Math.floor(Math.random() * (max - min + 1)) + min;
+        //10 - 0 + 1 = 11 + 0 = 11
+        return num;
+    }
+
+    // testFetchCall = async (someQueryHere) => {
+    //     await fetch(someQueryHere)
+    //         .then(response => response.json())
+    //         .then(data => {
+    //             const first = 0;
+    //             const last = data.hits.length - 1;
+    //             const someRandomImage = this.randomImage(first, last)
+    //             // this.setState({
+    //             //   test: data.hits[0].previewURL
+    //             // })
+
+    //             //check on this, pulled up an error
+    //             this.setState({
+    //                 image: data.hits[someRandomImage].previewURL
+
+    //             })
+    //             console.log(this.state.image)
+    //         })
+
+    // }
+
+    // componentDidMount() {
+    //     this.testFetchCall('&q=coffee&image_type=photo');
+    //     console.log('fetched')
+
+    //   }
 
     handleChange = (event) => {
         const userInput = event.target.value;
@@ -54,7 +93,7 @@ class ToDoInput extends Component {
 
     //Play with ternary operator instead
     //onsubmit the tool tip should remain on the screen until a valid entry is made, it is currently being made invisible on submit
-    handleSubmit = (event) => {
+    handleSubmit = async (event) => {
         event.preventDefault();
         const trimmedState = this.state.inputValue.trim();
         const lengthIsThere = trimmedState.length >= 1;
@@ -62,10 +101,36 @@ class ToDoInput extends Component {
         //  const novel = trimmedState.length>30;
         if (lengthIsThere && lengthIsOk) {
             //if atleast 1 character is in the field after trimming, and there are 30 characters or less submit the form
+            const queryString = trimmedState.replace(/ /g, '+')
+            const queryURL = URL + `&q=${queryString}&image_type=photo`
+            // this.testFetchCall(queryURL);
+            // console.log(queryURL)
+            await fetch(queryURL)
+            
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data)
+                  
+                    const first = 0;
+                    const last = data.hits.length - 1;
+                    const someRandomImage = this.randomImage(first, last)
+                    // this.setState({
+                    //   test: data.hits[0].previewURL
+                    // })
+
+                    //check on this, pulled up an error
+                    this.setState({
+                        image: data.hits[someRandomImage].previewURL
+
+                    })
+                    console.log(this.state.image)
+                })
+
             this.props.onSubmit({
                 id: shortid.generate(),
-                inputValue: this.neatMySentence(trimmedState)
-                //add image URL here from fetch call to pass to toDoList.js state array and map it out in pixaBayImage prop
+                inputValue: this.neatMySentence(trimmedState),
+                image: this.state.image
+                //this is happening after submit, create a call to wait
             })
             this.setState({
                 inputValue: ''
@@ -118,6 +183,7 @@ class ToDoInput extends Component {
     render() {
         return (
             <div className='Input' >
+                {/* <img src={this.state.image} /> */}
                 <form>
                     <input
                         type='text'
