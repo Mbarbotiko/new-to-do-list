@@ -25,7 +25,6 @@ class ToDoInput extends Component {
 
     randomImage = (min, max) => {
         const num = Math.floor(Math.random() * (max - min + 1)) + min;
-        //10 - 0 + 1 = 11 + 0 = 11
         return num;
     }
 
@@ -106,23 +105,42 @@ class ToDoInput extends Component {
             // this.testFetchCall(queryURL);
             // console.log(queryURL)
             await fetch(queryURL)
-            
-                .then(response => response.json())
+
+                // .then(function(response){
+                //     if(response.status===200){
+                //    return response.json();
+                //     }
+                // })
+
+                .then(response => {
+                    console.log(response.status)
+                    if (response.status === 200) {
+                        return response.json();
+
+                    } else {
+                        this.setState({
+                            image: failedImage
+
+                        })
+                    }
+
+                })
                 .then(data => {
-                    console.log(data)
-                  
-                    const first = 0;
-                    const last = data.hits.length - 1;
-                    const someRandomImage = this.randomImage(first, last)
-                    // this.setState({
-                    //   test: data.hits[0].previewURL
-                    // })
+                    console.log(data, data.hits, data.hits.length)
+                    if (data.hits.length > 0) {
+                        const first = 0;
+                        const last = data.hits.length - 1;
+                        const someRandomImage = this.randomImage(first, last)
+                        this.setState({
+                            image: data.hits[someRandomImage].previewURL
 
-                    //check on this, pulled up an error
-                    this.setState({
-                        image: data.hits[someRandomImage].previewURL
+                        })
+                    } else {
+                        this.setState({
+                            image: failedImage
 
-                    })
+                        })
+                    }
                     console.log(this.state.image)
                 })
 

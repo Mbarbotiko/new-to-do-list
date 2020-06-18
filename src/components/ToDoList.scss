@@ -24,6 +24,11 @@
   outline: none;
 }
 
+.Forget{
+  margin-top:5vw;
+  margin-bottom:10vw;
+}
+
 @media(max-width:1650px){
   .List{
     width:80%;
@@ -47,6 +52,10 @@
   .List{
     width:96%;
   }  
+  .Forget{
+    margin-top:10vw;
+    margin-bottom:20vw;
+  }
 }
 
 @media(max-width:850px) and (orientation:landscape){

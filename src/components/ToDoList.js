@@ -3,7 +3,7 @@ import ToDoItem from './ToDoItem';
 import ToDoInput from './ToDoInput';
 import SubmitButton from './SubmitButton';
 import './ToDoList.scss';
-import toDoImage from './images/testImage.jpg'
+//import toDoImage from './images/testImage.jpg'
 //add a tool tip to the handle submit event
 //add ability to edit the current to do's displayed, onclick of the LI display an input that updates only that component, onClick= props.edit
 //style this with sass, add to portfolio and move onto another project
@@ -71,20 +71,29 @@ class ToDoList extends Component {
             <div className='List'>
                 <ToDoInput onSubmit={this.submitToDoItem} />
                 {/* <button onClick={this.removeLocalStorage}>Forget My List</button> */}
-                {/* {forgetListButton} */}  
+
                 {this.state.toDoItems.map(todo => (
                     <ToDoItem
                         key={todo.id}
                         item={todo.inputValue}
-                        pixabayImage ={todo.image}
+                        pixabayImage={todo.image}
                         //must bind when passing arguments
                         //https://reactjs.org/docs/handling-events.html
                         removeItem={this.removeToDoItem.bind(this, (todo.id))}
                     />
+
                 ))
                 }
 
+                <div className='Forget'>
+                    {forgetListButton}
+                </div>
+
+
             </div>
+
+
+
 
 
         )
