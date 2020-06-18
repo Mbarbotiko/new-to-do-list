@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
-//@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
 @import '../VariableSetup.scss';//import shared colors/fonts/vars
 
 .Todo-card{
@@ -42,7 +41,6 @@
 .Todo-card span{
     font-family: 'Frijole', cursive;
     font-family: 'Acme', sans-serif;
-    //font-family: 'Fredoka One', cursive;
     font-size: 2em;
     line-height: 2em;
     padding-right:5%;   

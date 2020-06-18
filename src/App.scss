@@ -48,10 +48,6 @@ h1{
 
 }
 
-// svg g{
-//   fill:white;
-// }
-
 svg path{
   fill:white;
 }
@@ -59,7 +55,6 @@ svg path{
 
 @media(max-width:768px){
   h1{
-   // letter-spacing: .25em;
     font-size:2em;
   }
 
