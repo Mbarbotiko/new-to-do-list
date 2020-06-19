@@ -1,0 +1,65 @@
+@import './../VariableSetup.scss';//import shared colors/fonts/vars
+.List{
+  width:50%;
+   list-style-type: none;
+   margin:auto;
+   margin-top:50px;
+   margin-bottom:100px;
+}
+    
+.Input input{
+   text-align: center;
+   width: 50%;
+   padding: 11px 0px;
+   color: $aquaText;
+   border: none;
+   background-color:$offWhite;
+   background-image: url('./images/pencil.gif');
+   background-position: 5px 0px;
+   background-repeat: no-repeat;
+   background-size: contain;;
+}
+
+.Input input:focus{
+  outline: none;
+}
+
+.Forget{
+  margin-top:5vw;
+  margin-bottom:10vw;
+}
+
+@media(max-width:1650px){
+  .List{
+    width:80%;
+  }  
+}
+
+@media(max-width:1250px){
+  .Input input{
+    width: 80%;
+    margin-bottom:2%;
+  } 
+}
+
+@media(max-width:768px){
+  .Input input{
+    width: 100%;
+  } 
+}
+
+@media(max-width:568px){
+  .List{
+    width:96%;
+  }  
+  .Forget{
+    margin-top:10vw;
+    margin-bottom:20vw;
+  }
+}
+
+@media(max-width:850px) and (orientation:landscape){
+  .List{
+    width:96%;
+  }  
+}

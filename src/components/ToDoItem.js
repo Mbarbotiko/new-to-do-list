@@ -1,17 +1,14 @@
 import React from 'react';
-//https://reactjs.org/docs/fragments.html';
+import  './ToDoItem.scss';
 
 const ToDoItem = (props) => {
-
     return (
-
-        // <></>
-        <div>
-            <li onClick={props.edit}>{props.item}</li><button onClick={props.removeItem}>X</button>
+        <div className='Todo-card'>
+            <div><img src={props.pixabayImage} alt='someImagefromAPI'/></div>
+            <div onClick={props.edit}><p>{props.item}</p></div>
+            <div><span onClick={props.removeItem}>X</span></div>
         </div>
-
     )
-
 }
 
 export default ToDoItem;

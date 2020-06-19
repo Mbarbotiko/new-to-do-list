@@ -1,4 +1,5 @@
 import React from 'react';
+import  './SubmitButton.scss';
 
 const SubmitButton = (props) => {
     return (
@@ -6,7 +7,7 @@ const SubmitButton = (props) => {
             <button
                 className='SubmitButton'
                 onClick={props.submitClick
-                }>{props.submitText}</button>
+                }>{props.submitButtonText}</button>
         </>
     )
 }
