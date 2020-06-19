@@ -14,8 +14,8 @@ class App extends Component {
         </header>
         <ToDoList />
         <footer className='App-footer'>
-          <a href='https://pixabay.com' target='_blank'>
-            <Pixabay alt='pixabay.com logo' rel="noopener noreferrer" />
+          <a href='https://pixabay.com' target='_blank' rel="noopener noreferrer">
+            <Pixabay alt='pixabay.com logo' />
           </a>
         </footer>
       </div>

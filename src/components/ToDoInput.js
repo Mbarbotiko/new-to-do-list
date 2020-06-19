@@ -69,7 +69,6 @@ class ToDoInput extends Component {
             const queryURL = URL + `&q=${queryString}&image_type=photo`
             await fetch(queryURL)
                 .then(response => {
-                    console.log(response.status)
                     if (response.status === 200) {
                         return response.json();
                     } else {
