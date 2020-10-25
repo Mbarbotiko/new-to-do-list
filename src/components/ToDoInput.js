@@ -91,6 +91,12 @@ class ToDoInput extends Component {
                         })
                     }
                 })
+                .catch(error => {
+                    console.log(error);
+                    this.setState({
+                        image: failedImage
+                    })
+                })
 
             this.props.onSubmit({
                 id: shortid.generate(),
